@@ -3,6 +3,7 @@ on: [push, workflow_dispatch]
 #on: 
  #   - push
   #  - workflow_dispatch
+  # add other events as needed
 jobs:
   test:
     runs-on: ubuntu-latest
