@@ -1,0 +1,14 @@
+name: DeployDis
+on: [push, workflow_dispatch] or
+#on: 
+ #   - push
+  #  - workflow_dispatch
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: get code
+        run: | 
+            echo "cloning code from repo"
+            echo "${{toJson(github)}}"
+            git clone https://github.com/${{github.repository}}.git
