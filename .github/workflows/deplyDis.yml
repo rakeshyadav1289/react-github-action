@@ -4,11 +4,21 @@ on: [push, workflow_dispatch]
  #   - push
   #  - workflow_dispatch
 jobs:
-  greet:
+  test:
     runs-on: ubuntu-latest
     steps: 
-      - name: get code
-        run: | 
-            echo "cloning code from repo"
-            echo "${{toJson(github)}}"
-            git clone https://github.com/${{github.repository}}.git
+      - name: Get Code
+        uses: actions/checkout@v6 
+      - name: Install node js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+      - name: print node js version
+        run: node -v
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run tests
+        #           echo "cloning code from repo"
+#           echo "${{toJson(github)}}"
+#           git clone https://github.com/${{github.repository}}.git
