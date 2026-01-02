@@ -1,5 +1,5 @@
 name: DeployDis
-on: [push, workflow_dispatch] or
+on: [push, workflow_dispatch] 
 #on: 
  #   - push
   #  - workflow_dispatch
