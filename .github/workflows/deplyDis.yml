@@ -23,3 +23,20 @@ jobs:
         #           echo "cloning code from repo"
 #           echo "${{toJson(github)}}"
 #           git clone https://github.com/${{github.repository}}.git
+  deploy:
+#    needs: test
+    runs-on: ubuntu-latest
+    steps:
+       - name: Get Code
+         uses: actions/checkout@v6 
+       - name: Install node js
+         uses: actions/setup-node@v6
+         with:
+          node-version: '20'
+       - name: print node js version
+         run: node -v
+       - name: Buidl Project
+         run: npm run build
+       - name: Deploy
+         run: echo "Deploying the project..."
+         
